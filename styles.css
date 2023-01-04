@@ -1,0 +1,47 @@
+*{
+  box-sizing: border-box;
+}
+
+.gallery img{
+  width: 100%;
+  max-width: 350px;
+  height: 300px;
+  object-fit: cover; /*Mantém a proporção das imagens, para que não fiquem distorcidas*/
+  border-radius: 10px; 
+}
+
+body{
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f5f6f7
+}
+
+.header{
+  text-align: center;
+  text-transform: uppercase;
+  padding: 32px;
+  background-color: #0a0a23;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+}
+
+.gallery{
+  display: flex;
+  flex-direction: row; /*Pode ser row(já é por padrão, esquerda para direita), row-reverse*, column (Cima para baixo) e column-reverse*/
+  flex-wrap: wrap; /*Flex-warp determina como o flex se comporta quando o conteiner flexivel é muito pequeno. O warp pula para proxima linha quando não cabe*/
+  justify-content: center; /*A propriedade justify-content determina como os itens dentro de um flex container são posicionados ao longo do eixo principal,
+  afetando sua posição e o espaço ao redor deles.*/
+  align-items: center; /* Não entendi o porque disso, já que o justify-content já centralizou as imagens*/
+  padding: 20px 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 16px; /*Da espaço de uma imagem para outra, esteja ela verticalmente ou horizontalmente. Pode mudar individualmente também com o row-gap ou collumn-gap*/
+}
+
+.gallery::after{
+  content: "";
+  width: 350px;
+  /*O ::after cria um elemento que é o último filho do elemento selecionado. Você pode usá-lo para adicionar um elemento vazio após a última imagem. 
+  Se você der a mesma largura que as imagens, ela empurrará a última imagem para a esquerda quando a galeria estiver em um layout de duas colunas. 
+  No momento, está no centro porque você configurou justify-content: center no flex container.*/
+}
